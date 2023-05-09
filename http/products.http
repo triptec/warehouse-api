@@ -1,0 +1,52 @@
+### Seed products
+
+GET http://localhost:3000/products/seed
+
+
+### Get products
+
+GET http://localhost:3000/products
+
+### Get product
+
+GET http://localhost:3000/products/f74fb16e-62b2-4af1-abed-1a0516200d1b
+
+### Get product missing
+
+GET http://localhost:3000/products/f74fb16e-62b2-4af1-abed-1a0516200d
+
+### Update product
+
+PUT http://localhost:3000/products/f74fb16e-62b2-4af1-abed-1a0516200d1b/stock
+content-type: application/json
+
+{
+    "stock": 5
+}
+
+### Create product
+POST http://localhost:3000/products
+content-type: application/json
+
+{
+    "name": "Dinning Bench",
+    "price": {
+        "amount": 2999.99,
+        "currency": "SEK"
+    },
+    "stock": 1
+}
+
+### Create product with negative stock (invalid data)
+
+POST http://localhost:3000/products
+content-type: application/json
+
+{
+    "name": "Dinning Bench",
+    "price": {
+        "amount": 2999.99,
+        "currency": "SEK"
+    }
+    "stock": -1
+}
